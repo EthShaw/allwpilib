@@ -86,6 +86,12 @@ if (MSVC)
   set(WITH_FLAT_INSTALL ON)
 endif()
 
+# Need some fixes for android development to work
+if (ANDROID)
+  message(STATUS "This is an Android build, so we are applying Android fixes.")
+  include_directories(BEFORE "${CMAKE_SOURCE_DIR}/androidFixes")
+endif()
+
 if (WITH_JAVA AND NOT BUILD_SHARED_LIBS)
     message(FATAL_ERROR "
 FATAL: Cannot build static libs with Java enabled.

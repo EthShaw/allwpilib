@@ -4,7 +4,7 @@
 
 #include "wpi/StackTrace.h"
 
-#include <execinfo.h>
+// #include <execinfo.h>
 
 #include "wpi/Demangle.h"
 #include "wpi/SmallString.h"
@@ -14,7 +14,8 @@
 namespace wpi {
 
 std::string GetStackTraceDefault(int offset) {
-  void* stackTrace[128];
+  return "";
+  /*void* stackTrace[128];
   int stackSize = backtrace(stackTrace, 128);
   char** mangledSymbols = backtrace_symbols(stackTrace, stackSize);
   wpi::SmallString<1024> buf;
@@ -35,7 +36,7 @@ std::string GetStackTraceDefault(int offset) {
 
   std::free(mangledSymbols);
 
-  return std::string{trace.str()};
+  return std::string{trace.str()};*/
 }
 
 }  // namespace wpi

@@ -1,0 +1,13 @@
+// Replacement header to define everything used in the numbers header by WPILib
+// for android since the ndk does not have the numbers header. The only thing
+// used is a constant for pi, so that is all we have to define.
+
+#pragma once
+#ifndef _NUMBERS_
+#define _NUMBERS_
+
+namespace std::numbers {
+    inline constexpr double pi = 3.141592653589793;
+}  // namespace numbers
+
+#endif  // _NUMBERS_
